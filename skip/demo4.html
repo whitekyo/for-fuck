@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo4</title>
+</head>
+<body>
+<a href="javascript:void(0);" id="go">go</a>
+<a href="javascript:void(0);" id="back">back</a>
+<script type="text/javascript" src="../util/referurl.js"></script>
+<script type="text/javascript">
+	var oA = document.querySelector('#go');
+	oA.onclick = function(){
+		skipWebPage("demo5.html");
+	};
+
+	var oA1 = document.querySelector("#back");
+	oA1.onclick = function(){
+		var query = querySearch(window.location.search);
+		console.log(query.referurl);
+		window.location.href = decodeURIComponent(query.referurl);
+	};
+</script>
+</body>
+</html>
