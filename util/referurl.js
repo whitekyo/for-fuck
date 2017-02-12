@@ -37,3 +37,37 @@ function querySearch(search){
 	}
 	return key_value_map;
 }
+
+function setWebPage(webname, website, namesapce){
+	this.store.getItem(namesapce).push({
+		"key": webname,
+		"value": website
+	});
+}
+
+function getWebPage(webname, namesapce){
+	var list = this.stroe.getItem(namesapce);
+	for(var i = 0; i < list.length; i++){
+		if(list[i].key == webname){
+			return window.location.href = list.splice(i, 1).value;
+		}
+	}
+	return [];
+}
+
+function createLocalStore(){
+	return localStorage;
+}
+
+function init(namesapce){
+	var storage = this.createLocalStore();
+	storage.setItem(namesapce, []);
+	this.store = storage;
+}
+
+var store = {
+	setWebPage: setWebPage,
+	getWebPage: getWebPage,
+	createLocalStore: createLocalStore,
+	init: init
+};

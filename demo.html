@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript" src="underscore.js"></script>
+	<script type="text/javascript">
+		//
+		var start = (new Date()).getTime();
+		for(var i = 0; i < 10000; i++){
+			_.shuffle([1, 2, 3, 4, 5, 6]);
+			//fuck([1, 2, 3, 4, 5, 6]);
+		}
+		console.log((new Date()).getTime() - start);
+
+
+		function fuck(list){
+			var n = Math.floor(Math.random() * 10);
+			var arr = [];
+			if(list.length == 0){
+				return [];
+			}else{
+				while(list.length){
+					if(n < list.length){
+						var a = list.splice(n - 1 ? n -1 : 0, 1);
+						arr = arr.concat(a);
+					}else{
+						n = Math.floor(Math.random() * 10);
+					}
+				}
+				
+			}
+			return arr;
+		}
+
+		//var a = fuck([1, 2, 3, 4, 5, 6]);
+	</script>
+</body>
+</html>
